@@ -19,7 +19,7 @@ const UserItem = ({ user: {login, avatar_url, html_url} }) => {
                     className="btn btn-dark btn-sm my-1"
                 >
                     More
-                    </a>
+                </a>
             </div>
         </div>
     )
