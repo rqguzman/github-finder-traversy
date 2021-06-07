@@ -9,7 +9,9 @@ export class Search extends Component {
 
     static propTypes = {
         // emmet shortcut: ptfr
-        searchUsers: PropTypes.func.isRequired
+        searchUsers: PropTypes.func.isRequired,
+        clearUsers: PropTypes.func.isRequired,
+        showClear: PropTypes.bool.isRequired
     };
 
     onChange = (e) => {
@@ -19,10 +21,13 @@ export class Search extends Component {
     onSubmit = (e) => {
         e.preventDefault();
         this.props.searchUsers(this.state.text);
-        this.setState({text: ''});//Clears form
-    }
+        this.setState({ text: '' });//Clears form
+    };
 
     render() {
+
+        const { clearUsers, showClear } = this.props;
+
         return (
             <div>
                 <form onSubmit={this.onSubmit}>
@@ -35,9 +40,13 @@ export class Search extends Component {
                     />
                     <input type='submit' value='Search' className='btn btn-dark btn-block' />
                 </form>
+                {
+                    showClear &&
+                    <button className="btn btn-light btn-block" onClick={clearUsers}>Clear</button>
+                }
             </div>
-        )
+        );
     }
 }
 
-export default Search
+export default Search;
