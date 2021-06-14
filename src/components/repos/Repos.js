@@ -8,7 +8,7 @@ const Repos = ({ repos }) => {
     );
 };
 
-Repos.PropTypes = {
+Repos.propTypes = {
     repos: PropTypes.array.isRequired
 };
 
